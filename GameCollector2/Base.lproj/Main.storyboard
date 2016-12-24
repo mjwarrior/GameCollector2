@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="GameCollector2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="ViewController" customModule="GameCollector2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Game View Controller-->
         <scene sceneID="RD2-j4-PvR">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GMf-iY-jpm" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="GMf-iY-jpm" customClass="GameViewController" customModule="GameCollector2" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FaE-nR-D6C"/>
                         <viewControllerLayoutGuide type="bottom" id="KUL-si-axJ"/>
@@ -46,19 +46,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qyH-BT-Q8g">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Unknown.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="qyH-BT-Q8g">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="FIi-2P-lvd"/>
                                     <constraint firstAttribute="height" constant="120" id="Rbt-jq-8I6"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3e8-ve-9u9">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3e8-ve-9u9">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pph-Jt-qhY">
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addTapped:" destination="GMf-iY-jpm" eventType="touchUpInside" id="dBA-9C-Ps6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,13 +80,24 @@
                         <rightBarButtonItems>
                             <barButtonItem systemItem="camera" id="rpr-vO-82k">
                                 <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="cameraTapped:" destination="GMf-iY-jpm" id="f6z-hE-eFW"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Photos" id="0hV-SB-kon">
                                 <color key="tintColor" red="0.0" green="1" blue="0.55724914704869999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <action selector="photos:" destination="GMf-iY-jpm" id="Xsm-oY-9Xu"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="gameImageView" destination="qyH-BT-Q8g" id="ScO-Y3-L06"/>
+                        <outlet property="photosTapped" destination="0hV-SB-kon" id="blW-Zz-EzU"/>
+                        <outlet property="titleTextField" destination="3e8-ve-9u9" id="GPf-qy-o50"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SEh-V7-LIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,4 +122,7 @@
             <point key="canvasLocation" x="134" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Unknown.jpeg" width="329" height="153"/>
+    </resources>
 </document>
